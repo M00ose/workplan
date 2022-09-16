@@ -22,6 +22,15 @@
   font-family: var(--header);
 }
 
+input {
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
 .container {
   display: grid;
   grid-template-columns: 12em 1fr 15em;
@@ -30,7 +39,7 @@
     "content content content";
 }
 
-button {
+.main-btn {
   border: 1px solid var(--main-color);
   border-radius: 30px;
   padding: 3px 10px;
@@ -38,7 +47,7 @@ button {
   color: var(--main-color);
 }
 
-button:hover {
+.main-btn:hover {
   background-color: var(--main-color);
   color: var(--light-main);
   cursor: pointer;
@@ -140,19 +149,34 @@ button:hover {
 .tasks {
   grid-column: tasks;
   padding: 0 30px;
-  /* display: grid; */
 }
 
 .item {
   display: grid;
+  grid-template-columns: 1fr 10em;
+  gap: 10px;
+  margin-bottom: 0.3em;
+}
+
+.item-left,
+.item-right {
+  display: grid;
   padding: 10px 15px;
   background-color: var(--light-main);
   border-bottom: 1px solid var(--light-alt);
-  grid-template-columns: 5em 1fr 2.5em;
   grid-auto-flow: column;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  gap: 1em;
   border-radius: 10px;
+}
+
+.item-left {
+  grid-template-columns: 6em 2em 1fr 2em;
+}
+
+.item-right {
+  grid-template-columns: 1em 5em;
 }
 
 .status {
@@ -170,13 +194,35 @@ button:hover {
   border-radius: 30px;
 }
 
-.item > * {
+.item-left > *,
+.item-right > * {
   font-family: var(--normal);
   font-size: 0.75rem;
 }
 
-.item:hover {
+.item-left:hover,
+.item-right:hover {
   background-color: var(--highlight-light);
+}
+
+.client-logo {
+  height: 25px;
+  /* width: minmax(auto, 25px); */
+  max-width: 25px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.timer {
+  font-family: var(--normal);
+  text-align: center;
+  background-color: var(--highlight-light);
+  padding: 5px 10px;
+  border-radius: 10%;
+}
+
+.timer:hover {
+  border: 1px solid var(--main-color);
 }
 
 .teamview,
